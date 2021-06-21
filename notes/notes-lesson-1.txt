@@ -1,0 +1,105 @@
+// NLW 6 - NodeJS - Valoriza
+// Salvador Ludovico Paranhos
+// Engenharia de Computação - UFG
+
+// Daniela Evangelista Leão
+// Desenvolvedora Java por 11 anos (backend)
+// Desenvolvedora Node há 4 anos
+// Student Experience
+
+// NodeJS
+// Requisições, respostas para o usuário
+// Banco de dados
+
+// Aula 1 - preparação do ambiente e conceitos iniciais de api e node
+
+// Gerenciadores de dependencias -> npm e yarn
+
+// Testagem de requisições e respostas http   - insomnia e postman
+// gerenciador do banco de dados              - beekeeper studio
+
+// O que é o Node?
+
+// Foi lançando em 2009 pelo Ryan Doll. Criado pois tinha uma tarefa para fazer um upload de arquivos dentro de uma ferramenta chamada flicker
+// Viu que toda vez que precisava do saber o progresso do upload atual não era algo simples e que o browser soubesse e ele precisaria fazer uma
+// requisição para descobrir. Começou a fazer pesquisas e procurar linguagems que pudesse ser utilizada para requisições não bloqueantes.
+// O javascript não tem bloqueio de requisições (non blocking IO), feito com chamadas assíncronas. Pegou o V8 (engine do chrome) e o javascript
+// e juntou outras peças para montar o NodeJS.
+
+// Como funciona por baixo dos panos?
+
+// Quem receberá nossas requisições é o Event Loop (single thread -> existe um bloco que faz todo o processamento de cada requisição recebida). É um
+// evento que observa cada requisição que entra na aplicação e captura essas requisições. O Event Loop recebe essa requisição e delega/redireciona para
+// uma thread que esteja disponível e ela executa a requisição, faz o que precisa fazer. Single thread para receber mas tem várias threads que farão a
+// execução das requisições. Por padrão o Node separa 4 threads. Non-blocking IO é o conceito utilizado pelo node de entrada e saída não bloqueantes,
+// a primeira request pode ser feita e antes de ser terminada eu posso fazer outras requests e não necessariamente a primeira a ser feita será a
+// primeira a ser respondida. Streaming do node (leitura, escrita de arquivos) é fantástico. Módulos e pacotes padrões do node estão na documentação.
+
+// O que é API?
+
+// Não é algo que instalamos na nossa máquina, não é algo que utilizamos pela internet. É um conceito que entendemos sobre a criação de um projeto,
+// padrões que temos no nosso projeto que define a API dele.
+
+// Client
+//     site 
+//     (HTML, CSS, JS)
+//     listagem de produtos
+
+// Server
+//     API 
+//     requisição vindo do client por meio das rotas e o server dando resposta
+//     (Regra de negócio, acesso ao DB, autenticação de usuários, dados críticos)
+
+// Recursos da API
+//     são acessados por meio das rotas - solicitações
+//     url de servidor - http://nlwcommerce.com.br/recursos -> /produtos -> /carrinho
+//     vai no servidor, vê a rota e identifica o recurso que está sendo chamado
+//     GET - método de busca
+//     servidor pega o recurso que o client está mandando, verifica as regras de negócio, funções que devem ser executadas e devolver uma resposta ao client
+//     API -> recurso sendo chamado pelo client que é nossa rota | request vindo do client e response indo do server pro client
+//     API ex -> consulta de CEP, cálculo de frete, gateway de pagamentos. É retornado algo e muito comumente um JSON (chave e valor dentro de um objeto)
+
+// TypeScript
+//     Ferramenta que nos permite tipar os objetos, variáveis, retornos de funções e etc que estamos utilizando.
+//     `literal template`
+// `Olá ${name}, seu email é ${email} e seu telefone ${phone}`
+//     variableName: variableType
+//     Interface
+interface User {
+    name: string, email: string, phone?: string
+}
+
+function sendMail({ email, name, phone }: User) {
+    console.log(`Olá ${name}, seu email é ${email} e seu telefone ${phone}`);
+}
+
+sendMail({
+    email: "salvadorludovico.sl@gmail.com",
+    name: "Salvador",
+    phone: "999999999"
+})
+
+// mkdir
+//      criar a pasta
+
+// yarn init -y
+//      cria um package.json
+//      flag -y -> coloca as informações automaticamente (name, version, main, license)
+
+// yarn add NOME
+//      dependencias de desenvolvimento e dependencias de produção
+//      yarn add typescript -D (-D indica que é dependencia de desenvolvimento)
+
+// fazer com que o NodeJS entenda o typescript
+//      inicializar o typescript -> yarn tsc --init
+//      change "strict" to false -> checagens javascript dentro do código e como já faremos isso com TS, não é muito necessário.
+//      yarn tsc -> converter códigos para javascript
+//      yarn add ts-node-dev -D -> para deixar automatico essa conversão na hora de rodar
+//
+// Express
+//      Utilizaremos para criação de rotas e outros recursos bem úteis para a aplicação.
+//      yarn add express
+
+// Cria uma pasta src para colocar tudo que criaremos no nosso projeto
+
+// código do desafio -> #together
