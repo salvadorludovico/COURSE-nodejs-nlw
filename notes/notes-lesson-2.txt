@@ -1,0 +1,66 @@
+User
+    - (PK) ID (uuid)
+    - name (varchar)
+    - email (varchar)
+    - password (varchar)
+    - admin (boolean)
+    - created_at (Date)
+    - updated_at (Date)
+
+Tag (descrição dos elogios)
+    - (PK) ID (uuid)
+    - name (varchar)
+    - created_at (Date)
+    - updated_at (Date)
+
+Compliments
+    - (PK) ID (uuid)
+    - (FK) user_sender (uuid)
+    - (FK) user_receiver (uuid)
+    - (FK) tag_id (uuid)
+    - message (varchar)
+    - created_at (Date)
+
+
+Tipos de parâmetros
+    Route Params => http://localhost:3000/produtos/7859212384
+    Query Params => http://localhost:3000/produtos?name=teclado&description=tecladorgb
+  
+    Body Params  => {
+        "name": "teclado",
+        "description": "teclado rgb"
+    }
+    -> não utilizado para get
+
+Driver nativo                   - node-postgres
+Query Builder                   - Knex
+Object Relational Mapping (ORM) - Sequelize, TypeORM, Prisma
+
+Como escolher a melhor forma? Varia conforme as necessidades de cada aplicação
+É importante saber do básico ao intermediário de SQL
+
+reflect-metadata -> decorators(@)
+
+yarn add typeorm reflect-metadata sqlite3
+
+migrations: controle de versionamento das tabelas do banco da aplicação
+
+CLI
+
+yarn typeorm migration:create -n CreateUsers
+
+yarn typeorm migration:run
+
+yarn typeorm migration:revert
+
+yarn typeorm entity:create -n User
+
+yarn add uuid
+yarn add @types/uuid -D
+
+Entity (Entidade)
+    Podemos referenciar uma entidade como uma tabela
+    Entidade <-> ORM <-> DB (users)
+                Repository (manipulação do DB)
+
+requistion -> server -> controller -> SERVICE (todos os processos antes de enviar pro db) -> Repositories -> DB 

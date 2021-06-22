@@ -103,3 +103,13 @@ sendMail({
 // Cria uma pasta src para colocar tudo que criaremos no nosso projeto
 
 // código do desafio -> #together
+
+/**
+ * GET    => Buscar uma informação (listagens, ...)
+ * POST   => Inserir uma informação (criações, ...)
+ * PUT    => Alterar uma informação (manipulação de um dado já existente)
+ * DELETE => Remover um dado
+ * PATCH  => Alterar uma informação específica
+ */
+
+ // ... significa que as tipagems existem mas não está dentro delas (há uma biblioteca a parte com as tipagens)
