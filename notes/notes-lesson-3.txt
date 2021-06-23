@@ -1,0 +1,22 @@
+Lançamento de exceção (repassando para a camada acima tratar o erro);
+
+Controller => Service (throw new Error)
+
+
+Middleware é o que fica no meio da reposta -> pode interceptar uma chamada ou pode checar
+algo e mandar para frente
+
+middleware de erro -> 4 parâmetros
+
+Express não consegue pegar erros de funções assíncronas, por isso instalamos a biblioteca
+    yarn add express-async-errors
+
+Criar nos erros um erro customizável (retornar um status diferente)
+cria uma classe de erro customizável (istancia da classe) com status e mensagem
+
+Aula de amanhã
+- chaves estrangeiras (relacionamentos entre tabelas)
+- autenticação (jwt)
+
+Código do desafio
+#embuscadeevolução

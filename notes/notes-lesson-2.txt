@@ -63,4 +63,11 @@ Entity (Entidade)
     Entidade <-> ORM <-> DB (users)
                 Repository (manipulação do DB)
 
-requistion -> server -> controller -> SERVICE (todos os processos antes de enviar pro db) -> Repositories -> DB 
+
+REQUISITION => SERVER -> 
+            => CONTROLLER (recebe os dados da requisição e repassa pro service) -> 
+            => SERVICE (todos os processos (regras de negócio) antes de enviar pro db) -> 
+            => Repositories -> 
+            => DB 
+
+#unidade
