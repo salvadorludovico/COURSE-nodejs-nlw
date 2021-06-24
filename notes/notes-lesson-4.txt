@@ -1,0 +1,14 @@
+JWT e RELACIONAMENTOS (COMPLIMENTS)
+
+JSON Web Tokens (padrão de token com propriedades que permite que façamos comunicações entre requisições
+utilizando um token) - garantir que rotas que precisam de autenticação ou autorização façam essa verificação
+
+Não colocar informações sensíveis como senha no payload do token.
+
+yarn add jsonwebtoken
+yarn add @types/jsonwebtoken -D
+
+Código: #legacy
+
+### Ignite
+    Curso da RocketSeat
